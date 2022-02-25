@@ -1,0 +1,10 @@
+﻿<updates>
+  <update version="1.0.0">
+    <files>
+      <file path="Components/LiveSplit.EldenRing.dll" status="added" />
+    </files>
+    <changelog>
+      <change>New release for game version 1.02</change>
+    </changelog>
+  </update>
+</updates>
