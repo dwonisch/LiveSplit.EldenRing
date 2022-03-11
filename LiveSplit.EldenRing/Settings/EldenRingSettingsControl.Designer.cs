@@ -24,16 +24,18 @@ namespace LiveSplit.EldenRing.Settings {
         /// the contents of this method with the code editor.
         /// </summary>
         private void InitializeComponent() {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(EldenRingSettingsControl));
             this.label1 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // label1
             // 
-            this.label1.Location = new System.Drawing.Point(3, 0);
+            this.label1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.label1.Location = new System.Drawing.Point(0, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(313, 101);
+            this.label1.Size = new System.Drawing.Size(464, 526);
             this.label1.TabIndex = 0;
-            this.label1.Text = "Elden Ring Ingame Time Component v1.0.0\r\n\r\n© 2022 dwonisch";
+            this.label1.Text = resources.GetString("label1.Text");
             // 
             // EldenRingSettingsControl
             // 

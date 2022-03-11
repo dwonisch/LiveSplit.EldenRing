@@ -77,10 +77,17 @@ namespace LiveSplit.EldenRing {
         }
 
         private void Initialize() {
-            config = new GameConfigV102();
-            
             processMemory = ProcessMemory.OpenRead(process.Id);
-            
+            string version = processMemory.GetFileVersion();
+            Trace.WriteLine($"Game Version detected: {version}");
+
+            switch (version) {
+                case "1.2.1.0":
+                case "1.2.2.0": config = new GameConfigV1_02(); break; 
+                case "1.2.3.0": config = new GameConfigV1_02_3(); break;
+                default: config = new GameConfigV1_02_3(); break;
+            }
+        
             InitializeAddresses();
         }
 

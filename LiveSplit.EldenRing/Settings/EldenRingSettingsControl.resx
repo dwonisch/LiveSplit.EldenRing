@@ -117,4 +117,11 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="label1.Text" xml:space="preserve">
+    <value>Elden Ring Ingame Time Component v1.1.0
+
+Elden Ring is using Easy Anti Cheat (EAC), preventing access to required game information.  This makes this component only usable when EAC will be disabled and playing offline.
+
+© 2022 dwonisch</value>
+  </data>
 </root>
