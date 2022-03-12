@@ -12,10 +12,12 @@ namespace LiveSplit.EldenRing {
     public class EldenRingComponent : IComponent {
         private readonly EldenRingSettingsControl control;
         private readonly EldenRingSplitter splitter;
+        private readonly EldenRingSettings settings;
 
         public EldenRingComponent(LiveSplitState liveSplitState) {
-            splitter = new EldenRingSplitter(liveSplitState);
-            control = new EldenRingSettingsControl();
+            settings = new EldenRingSettings();
+            control = new EldenRingSettingsControl(settings);
+            splitter = new EldenRingSplitter(liveSplitState, settings);
         }
 
         public void Dispose() {
@@ -33,10 +35,13 @@ namespace LiveSplit.EldenRing {
         }
 
         public XmlNode GetSettings(XmlDocument document) {
-            return document.CreateNode(XmlNodeType.Element, "EldenRing", "");
+            var node = document.CreateNode(XmlNodeType.Element, "EldenRing", "");
+            this.settings.SaveTo(node);
+            return node;
         }
 
         public void SetSettings(XmlNode settings) {
+            this.settings.LoadFrom(settings);
         }
 
         public void Update(IInvalidator invalidator, LiveSplitState state, float width, float height, LayoutMode mode) {

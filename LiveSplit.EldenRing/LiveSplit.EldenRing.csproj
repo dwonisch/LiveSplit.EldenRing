@@ -4,7 +4,7 @@
     <TargetFramework>net461</TargetFramework>
     <UseWindowsForms>true</UseWindowsForms>
 	  <Authors>dwonisch</Authors>
-    <Version>1.1.0</Version>
+    <Version>1.1.1</Version>
   </PropertyGroup>
 
   <ItemGroup>
@@ -12,9 +12,7 @@
     <PackageReference Include="LiveSplit" Version="1.8.17">
       <PrivateAssets>all</PrivateAssets>
     </PackageReference>
-    <PackageReference Include="Memory" Version="1.0.2">
-      <IncludeAssets>all</IncludeAssets>
-    </PackageReference>
+    <PackageReference Include="Memory" Version="1.0.7" />
   </ItemGroup>
 
   <ItemGroup>
@@ -24,7 +22,7 @@
   </ItemGroup>
 
   <Target Name="PostBuild" AfterTargets="PostBuildEvent">
-    <Exec Command="$(ILMergeConsolePath) $(OutDir)LiveSplit.EldenRing.dll $(OutDir)Memory.dll /out:$(OutDir)LiveSplit.EldenRing.dll&#xD;&#xA;copy /Y &quot;$(OutDir)LiveSplit.EldenRing.dll&quot; &quot;$(SolutionDir)Components\$(ProjectName).dll&quot;" />
+    <Exec Command="$(ILMergeConsolePath) $(TargetDir)LiveSplit.EldenRing.dll $(TargetDir)Memory.dll /out:$(SolutionDir)Components\LiveSplit.EldenRing.dll" />
   </Target>
 
 </Project>
